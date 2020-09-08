@@ -1,34 +1,53 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
+using TreeEditor;
 using UnityEngine;
 
 public class fightshake : MonoBehaviour
 {
+    [SerializeField]
+    private float amount = 10.0f; // how much the item shakes
+
+    bool shaking = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        if(gameObject.activeSelf)
-            StartCoroutine(Shake(2f, .4f));
+         
     }
 
-    public IEnumerator Shake(float duration, float magnitude)
+    private void Update()
     {
-        Vector3 originalPos = transform.localPosition;
-        float elapsed = 0.0f;
-
-        while (elapsed < duration)
+       if(shaking)
         {
-            float x = Random.Range(-1f, 1f) * magnitude;
-            float y = Random.Range(-1f, 1f) * magnitude;
+            Vector3 newPos = Random.insideUnitSphere * (Time.deltaTime * amount);
+            newPos.y = transform.position.y;
+            newPos.z = transform.position.z;
 
-            transform.localPosition = new Vector3(x, y, originalPos.z);
+            transform.position = newPos;
+       }
+        ShakeMe();
+    }
 
-            elapsed += Time.deltaTime;
+    public void ShakeMe()
+    {
+        StartCoroutine(ShakeNow());
+    }
 
-            yield return null;
+    IEnumerator ShakeNow()
+    {
+        Vector3 originalPos = transform.position;
+
+        if(shaking == false)
+        {
+            shaking = true;
         }
 
-        transform.localPosition = originalPos;
-        gameObject.SetActive(false);
+        yield return new WaitForSeconds(.75f);
+
+        shaking = false;
+        transform.position = originalPos;
     }
+   
 }

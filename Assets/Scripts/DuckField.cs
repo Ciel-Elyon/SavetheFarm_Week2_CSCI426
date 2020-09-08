@@ -17,11 +17,5 @@ public class DuckField : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag == "MeatParticle")
-        {
-            Debug.Log("hello");
-        }
-    }
+   
 }

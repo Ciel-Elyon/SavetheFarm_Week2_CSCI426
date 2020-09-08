@@ -16,7 +16,7 @@ public class SheepEaten : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Blade") && !collision.CompareTag("Sheep"))
+        if (!collision.CompareTag("Blade") && !collision.CompareTag("Sheep") && !collision.CompareTag("Resource"))
         {
             eatSound.Play();
             fightprefab.SetActive(true);

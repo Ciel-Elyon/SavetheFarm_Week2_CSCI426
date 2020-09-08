@@ -17,7 +17,7 @@ public class SheepMovememt : MonoBehaviour
 
     float distanceTravelled;
 
-    bool isMoving = false;
+    bool isMoving = true;
     // Start is called before the first frame update
     void Start()
     {
