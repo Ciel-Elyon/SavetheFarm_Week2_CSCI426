@@ -35,7 +35,7 @@ public class ResourceSpawn : MonoBehaviour
 
             GameObject resourceSpawned = Instantiate(resourcePrefabs[spawnType], spawnPoint.position, spawnPoint.rotation);
 
-            Destroy(resourceSpawned, 3f);
+            Destroy(resourceSpawned, 2f);
 
         }
     }
