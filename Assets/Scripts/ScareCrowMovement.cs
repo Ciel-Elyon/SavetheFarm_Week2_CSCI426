@@ -7,10 +7,20 @@ public class ScareCrowMovement : MonoBehaviour
     [SerializeField] public float speed;
     private Rigidbody2D myrigidbody;
     private Vector3 mousechange;
+    private AudioSource screamSound;
     // Start is called before the first frame update
     void Start()
     {
         myrigidbody = GetComponent<Rigidbody2D>();
+        screamSound = GetComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            screamSound.Play();
+        }
     }
 
     // Update is called once per frame
