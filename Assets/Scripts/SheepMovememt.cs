@@ -13,13 +13,15 @@ public class SheepMovememt : MonoBehaviour
     [SerializeField]
     public EndOfPathInstruction end;
 
+    AudioSource hungrysound;
+
     float distanceTravelled;
 
-    bool isMoving = true;
+    bool isMoving = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+        hungrysound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,6 +29,7 @@ public class SheepMovememt : MonoBehaviour
     {
         if(isMoving)
         {
+            hungrysound.enabled = true;
             distanceTravelled += speed * Time.deltaTime;
             transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, end);
         }
