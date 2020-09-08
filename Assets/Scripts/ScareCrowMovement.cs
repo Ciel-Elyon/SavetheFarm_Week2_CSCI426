@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScareCrowMovement : MonoBehaviour
 {
     [SerializeField] public float speed;
+    [SerializeField] public CameraShake cameraShake;
     private Rigidbody2D myrigidbody;
     private Vector3 mousechange;
     private AudioSource screamSound;
@@ -20,6 +21,7 @@ public class ScareCrowMovement : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E))
         {
             screamSound.Play();
+            StartCoroutine(cameraShake.Shake(.15f, .4f));
         }
     }
 
