@@ -6182,6 +6182,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00ed9a8b9424f245a1d8530aff41ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plantSlider: {fileID: 1695102149}
+  sheepSlider: {fileID: 1827290174}
+  wolvesSlider: {fileID: 154175805}
   cropScore: 0
   sheepScore: 33.3
   wolfScore: 50

@@ -1,10 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 
 public class GameCode : MonoBehaviour
 {
+
+    public Slider plantSlider;
+    public Slider sheepSlider;
+    public Slider wolvesSlider;
+
     [SerializeField]
     public float cropScore = 0.0f;
     [SerializeField]
@@ -25,5 +31,11 @@ public class GameCode : MonoBehaviour
         {
             Destroy(this);
         }
+    }
+
+    void Update() {
+        plantSlider.value = cropScore/100; 
+        sheepSlider.value = sheepScore/100;
+        wolvesSlider.value = wolfScore/100;
     }
 }
