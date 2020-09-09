@@ -12,6 +12,13 @@ public class GameCode : MonoBehaviour
     [SerializeField]
     private float wolfdecaySpeed = -3.0f;
 
+    public GameObject wintext;
+    public GameObject losetext;
+    public GameObject instructions;
+
+    public GameObject restartButton;
+    public GameObject startButton;
+
     public Slider plantSlider;
     public Slider sheepSlider;
     public Slider wolvesSlider;
@@ -21,6 +28,7 @@ public class GameCode : MonoBehaviour
     public float wolfScore = 50.0f;
 
     public bool gameHasEnded = false;
+    public bool gameHasWon = false;
     public bool cropeaten = false;
     public bool sheepeaten = false;
 
@@ -41,9 +49,16 @@ public class GameCode : MonoBehaviour
     private void Start()
     {
         gameHasEnded = false;
+        Time.timeScale = 0f;
     }
 
     void Update() {
+
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
         plantSlider.value = cropScore/100; 
         sheepSlider.value = sheepScore/100;
         wolvesSlider.value = wolfScore/100;
@@ -61,31 +76,33 @@ public class GameCode : MonoBehaviour
             sheepeaten= true;
         }
 
-        if (gameHasEnded)
-            EndGame();
+        if (cropScore >= 100 && sheepScore >= 100)
+            wintext.SetActive(true);
+        else if (gameHasEnded)
+            losetext.SetActive(true);
+
 
     }
 
-    void EndGame()
+   public void ReturnToMenu()
     {
-        if(gameHasEnded ==  false)
-        {
-            gameHasEnded = true;
-            
-            //reset variables
-            cropScore = 0.0f;
-            sheepScore = 33f;
-            wolfScore = 50.0f;
-            cropeaten = false;
-            sheepeaten = false;
-            gameHasEnded = false;
-
-            ReturnToMenu("Menu");
-        }
+        //reset variables
+        cropScore = 0.0f;
+        sheepScore = 33f;
+        wolfScore = 50.0f;
+        cropeaten = false;
+        sheepeaten = false;
+        gameHasEnded = false;
+        gameHasWon = false;
+        Time.timeScale = 0f;
+        startButton.SetActive(true);
+        instructions.SetActive(true);
     }
 
-    void ReturnToMenu(string scenename)
+    public void StartGame()
     {
-        SceneManager.LoadScene(scenename);
+        Time.timeScale = 1.0f;
+        instructions.SetActive(false);
+        startButton.SetActive(false);
     }
 }

@@ -1,7 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
-using TreeEditor;
 using UnityEngine;
 
 public class fightshake : MonoBehaviour

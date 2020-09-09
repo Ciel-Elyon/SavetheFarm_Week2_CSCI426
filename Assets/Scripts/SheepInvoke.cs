@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WolfInvoke : MonoBehaviour
+public class SheepInvoke : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -13,9 +13,10 @@ public class WolfInvoke : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameCode.instance.sheepeaten == true)
+        if(GameCode.instance.cropeaten == true)
         {
             gameObject.GetComponent<SheepMovememt>().enabled = true;
+            GameCode.instance.gameHasEnded = true;
         }
     }
 }

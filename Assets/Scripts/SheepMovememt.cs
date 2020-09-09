@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using PathCreation;
-using TreeEditor;
 
 public class SheepMovememt : MonoBehaviour
 {
