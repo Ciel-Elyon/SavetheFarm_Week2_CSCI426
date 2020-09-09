@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4546366738850820834}
   m_Layer: 12
   m_Name: water
-  m_TagString: Resource
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,3 +135,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterParticlePrefab: {fileID: 1496822031846706596, guid: 8ae72f3651f16e24ab448fffb9d43245, type: 3}
+  blade: {fileID: 2344003574582866952, guid: 9ec7617d16bc53e469d8088452a42988, type: 3}
+  index: 0

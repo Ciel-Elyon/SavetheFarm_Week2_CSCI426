@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2380207532372708786}
   m_Layer: 12
   m_Name: Hay-rolled
-  m_TagString: Resource
+  m_TagString: Hay
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,3 +135,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterParticlePrefab: {fileID: 3053129681086264480, guid: b037bdeb93947d748b6d55817d734ab8, type: 3}
+  blade: {fileID: 2344003574582866952, guid: 9ec7617d16bc53e469d8088452a42988, type: 3}
+  index: 0

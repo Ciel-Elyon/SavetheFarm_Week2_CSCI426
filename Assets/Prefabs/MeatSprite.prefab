@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8141238258292564079}
   m_Layer: 12
   m_Name: MeatSprite
-  m_TagString: Resource
+  m_TagString: Meat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,3 +135,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterParticlePrefab: {fileID: 3002460726882734900, guid: e9154e4cf2e5f3347a5f6a201aebeb1b, type: 3}
+  blade: {fileID: 2344003574582866952, guid: 9ec7617d16bc53e469d8088452a42988, type: 3}
+  index: 0

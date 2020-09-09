@@ -9,6 +9,12 @@ TagManager:
   - Eater
   - Sheep
   - Resource
+  - Water
+  - Meat
+  - Hay
+  - SheepCheck
+  - WolfCheck
+  - CropCheck
   layers:
   - Default
   - TransparentFX
@@ -24,7 +30,7 @@ TagManager:
   - Wolf
   - Resource
   - Blade
-  - 
+  - Check
   - 
   - 
   - 

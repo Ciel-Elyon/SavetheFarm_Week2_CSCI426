@@ -10,6 +10,7 @@ public class Blade : MonoBehaviour
     [SerializeField]
     public float minCuttingVelocity = 1.0f;
 
+
     bool isCutting = false;
 
     Vector2 prevPos;
