@@ -18,6 +18,8 @@ public class GameCode : MonoBehaviour
     [SerializeField]
     public float wolfScore = 50.0f;
 
+    public bool gameHasEnded = false;
+
     public static GameCode instance;
 
     private void Awake()

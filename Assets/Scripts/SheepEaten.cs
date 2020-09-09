@@ -7,20 +7,19 @@ public class SheepEaten : MonoBehaviour
     [SerializeField]
     public GameObject fightprefab;
 
-    AudioSource eatSound;
+
     // Start is called before the first frame update
     void Start()
     {
-        eatSound = GetComponent<AudioSource>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!collision.CompareTag("Blade") && !collision.CompareTag("Sheep") && !collision.CompareTag("Resource"))
+        if (other.CompareTag("Eater"))
         {
-            eatSound.Play();
-            fightprefab.SetActive(true);
-            Destroy(gameObject, 2f);
+            GameObject fightcloud = Instantiate(fightprefab, transform.position, transform.localRotation);
+            Destroy(fightcloud, 3f);
+            Destroy(gameObject);
         }
 
     }

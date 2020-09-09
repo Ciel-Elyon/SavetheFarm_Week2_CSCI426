@@ -11,16 +11,19 @@ public class fightshake : MonoBehaviour
 
     bool shaking = false;
 
+    AudioSource eatsound;
+
     // Start is called before the first frame update
     void Start()
     {
-         
+        eatsound = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
        if(shaking)
         {
+            eatsound.Play();
             Vector3 newPos = Random.insideUnitSphere * (Time.deltaTime * amount);
             newPos.y = transform.position.y;
             newPos.z = transform.position.z;
