@@ -23,7 +23,7 @@ public class ResourceSpawn : MonoBehaviour
 
     IEnumerator SpawnResources()
     {
-        while (true)
+        while (!GameCode.instance.cropeaten && !GameCode.instance.sheepeaten)
         {
             float delay = Random.Range(minDelay, maxDelay);
             yield return new WaitForSeconds(delay);

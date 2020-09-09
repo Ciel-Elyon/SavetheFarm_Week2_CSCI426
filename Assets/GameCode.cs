@@ -8,9 +8,9 @@ using UnityEngine.SceneManagement;
 public class GameCode : MonoBehaviour
 {
     [SerializeField]
-    private float sheepdecaySpeed = -3.0f;
+    private float sheepdecaySpeed = -2.0f;
     [SerializeField]
-    private float wolfdecaySpeed = -4.0f;
+    private float wolfdecaySpeed = -3.0f;
 
     public Slider plantSlider;
     public Slider sheepSlider;
@@ -51,6 +51,19 @@ public class GameCode : MonoBehaviour
         sheepScore += (sheepdecaySpeed * Time.deltaTime);
         wolfScore += (wolfdecaySpeed * Time.deltaTime);
 
+        if(sheepScore <= 0)
+        {
+            cropeaten = true;
+        }
+
+        if(wolfScore <= 0)
+        {
+            sheepeaten= true;
+        }
+
+        if (gameHasEnded)
+            EndGame();
+
     }
 
     void EndGame()
@@ -58,6 +71,15 @@ public class GameCode : MonoBehaviour
         if(gameHasEnded ==  false)
         {
             gameHasEnded = true;
+            
+            //reset variables
+            cropScore = 0.0f;
+            sheepScore = 33f;
+            wolfScore = 50.0f;
+            cropeaten = false;
+            sheepeaten = false;
+            gameHasEnded = false;
+
             ReturnToMenu("Menu");
         }
     }

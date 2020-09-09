@@ -6,6 +6,9 @@ public class ScareCrowMovement : MonoBehaviour
 {
     [SerializeField] public float speed;
     [SerializeField] public CameraShake cameraShake;
+
+    private bool effectiveSheep = false;
+    private bool effectiveWolf = false;
     private Rigidbody2D myrigidbody;
     private Vector3 mousechange;
     private AudioSource screamSound;
@@ -21,7 +24,19 @@ public class ScareCrowMovement : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E))
         {
             screamSound.Play();
+            if (effectiveSheep)
+            {
+                effectiveSheep = false;
+                GameCode.instance.sheepScore += 10.0f;
+            }
+            if(effectiveWolf)
+            {
+                effectiveWolf = false;
+                GameCode.instance.wolfScore += 10.0f;
+            }
             StartCoroutine(cameraShake.Shake(.15f, .4f));
+
+           
         }
     }
 
@@ -38,6 +53,17 @@ public class ScareCrowMovement : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "SheepFieldScare")
+        {
+            effectiveSheep = true;
+        }
+        if(collision.tag == "WolfFieldScare")
+        {
+            effectiveWolf = true;
+        }
+    }
     void MoveCharacter()
     {
         myrigidbody.MovePosition(transform.position + mousechange.normalized * speed * Time.deltaTime);
